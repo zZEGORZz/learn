@@ -1,5 +1,6 @@
 <template>
   <nav>
+    <router-link to="/poker">Poker</router-link> |
     <router-link to="/poke">Pokemons</router-link> |
     <router-link to="/todo">ToDo</router-link>
   </nav>

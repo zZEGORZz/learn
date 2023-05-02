@@ -1,11 +1,14 @@
+<!-- eslint-disable max-len -->
 <template>
   <div>
-    <div class="header">
-      <div class="container">
+    <div class="header w-[100%]">
+      <div class="containerr w-[100%]">
         <div class="logo">ToDo List</div>
         <label for="inputTask">
           <input
-            id="inputTask"
+            eslint-disable-next-line
+            max-len
+            class="h-[30px] bg-[#eeb2d5] mr-1 rounded-md min-w-[350px] max-w-[500px] border-2 border-black p-1"
             type="text"
             placeholder="No one will do it but You"
             :value="inputValue"
@@ -13,6 +16,7 @@
             @keypress.enter="addTask"
         /></label>
         <input
+          class="w-12 justify-center border-2 border-black h-[30px]"
           id="buttonAddTask"
           type="button"
           value="Enter"
@@ -22,6 +26,7 @@
     </div>
     <ul class="ulTo">
       <li
+        class="border-default border-2 p-3"
         v-for="(elem, indexElem) in this.$store.state.listTasksVuex"
         :key="indexElem.id"
       >
@@ -35,7 +40,7 @@
     </ul>
     <div v-if="this.$store.state.listTasksVuex.length" class="sumTasks">
       <div>
-        <hr v-if="this.$store.state.listTasksVuex.length" />
+        <hr v-if="this.$store.state.listTasksVuex.length" class="mt-3" />
       </div>
       <div>Counter notes: {{ this.$store.state.listTasksVuex.length }}</div>
     </div>
@@ -87,9 +92,9 @@ body {
   word-wrap: break-word;
   margin-top: 14px;
   font-size: 30px;
-  background-color: rgb(233 182 216);
+  background-color: rgb(224, 255, 214);
   border-radius: 10px;
-  width: 700px;
+  width: 70%;
 }
 
 .header {
@@ -98,20 +103,18 @@ body {
   text-align: center;
 }
 
-.container {
+.containerr {
   height: 46px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-.header .container .logo {
+.header .containerr .logo {
   font-family: 'Rubik Mono One', sans-serif;
   width: 135px;
   color: #fff700;
   font-size: 30px;
-  cursor: pointer;
   text-shadow: 2px 2px 3px rgb(251 255 0 / 45%),
     -2px -2px 3px rgb(255 145 0 / 45%);
   -webkit-text-stroke: 1px #fff700;
@@ -119,28 +122,14 @@ body {
   letter-spacing: 1px;
   display: flex;
   flex-wrap: wrap;
-  margin-right: 5%;
+  margin-right: 10px;
   margin-top: -6px;
-}
-
-#inputTask {
-  color: rgb(153, 0, 255);
-  background-color: rgb(238, 178, 213);
-  width: 350px;
-  height: 22px;
-  border-radius: 7px;
-  font-size: 16px;
-  margin-right: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  border: black solid 2px;
 }
 
 #buttonAddTask {
   color: black;
   background-color: rgb(238, 178, 213);
   border-radius: 7px;
-  height: 28px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -172,14 +161,13 @@ body {
   font-size: 11px;
   font-family: 'montserrat';
   text-decoration: none;
-  margin: 7px 0;
   border: 2px solid #ff7675;
   padding: 0px 0px;
   text-transform: uppercase;
   overflow: hidden;
   margin-left: 87%;
   border-radius: 7px;
-  background-color: blanchedalmond;
+  background-color: #e9b6d8;
 }
 
 .btnDelete:hover {

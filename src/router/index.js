@@ -11,6 +11,11 @@ const routes = [
     name: 'poke',
     component: () => import('../views/pokemonsPage.vue'),
   },
+  {
+    path: '/poker',
+    name: 'poker',
+    component: () => import('../views/pokerPage.vue'),
+  },
 ];
 
 const router = createRouter({

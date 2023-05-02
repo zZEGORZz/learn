@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h1>Pokemons</h1>
+    <h1 class="text-[30px]">Pokemons</h1>
     <input
       aria-label="inputLabel"
       id="inpPoke"
-      class="inpPoke"
+      class="h-[30px] border-2 border-black p-1"
       type="text"
       placeholder="Pokemon's Google"
       v-model="inputValue"
       @keypress.enter="getPoke(`pokemon/${inputValue}`)"
     />
     <input
-      class="butPoke"
+      class="bg-default w-[70px] butPoke"
       type="button"
       value="search"
       @click="getPoke(`pokemon/${inputValue}`)"
@@ -46,9 +46,10 @@
       </ul>
     </div>
 
-    <ul class="ulPoke" v-if="this.$store.state.infoPokemons">
+    <ul v-if="this.$store.state.infoPokemons">
       <!-- prettier-ignore -->
-      <li v-for="(elem, indexElem) in paginationPokes" :key="indexElem.id">
+      <li class="rounded-[5px] flex justify-center p-[3px]"
+      v-for="(elem, indexElem) in paginationPokes" :key="indexElem.id">
         <button class="btnChoosePoke" v-on:click="getPoke(elem.url)">
           {{ elem.name }}
         </button>
@@ -86,7 +87,6 @@ export default {
   created() {
     if (this.$store.state.infoPokemons === '') {
       this.getPoke('pokemon/25/');
-      console.log(Boolean(NaN));
     }
     axios.get('pokemon/?limit=721').then((response) => {
       this.$store.state.infoPokemons = response;
